@@ -1,2 +1,3 @@
-require 'inesita/routes'
-require 'inesita/router'
+require 'inesita-router/browser'
+require 'inesita-router/routes'
+require 'inesita-router/router'
