@@ -2,7 +2,7 @@
 
 Router for [Inesita](https://github.com/inesita-rb/inesita) framework.
 
-# Example
+## Example
 
 ```ruby
 class Router

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Inesita::Router do
+  let(:element) { Inesita::Browser::Document.JS.createElement('div') }
   let(:wrong_router) { Class.new { include Inesita::Router } }
   let(:empty_router) { Class.new { include Inesita::Router; def routes; end } }
   let(:router) do
@@ -9,10 +10,18 @@ describe Inesita::Router do
 
       class TestComponent
         include Inesita::Component
+
+        def render
+          div { "test" }
+        end
       end
 
       class OtherTestComponent
         include Inesita::Component
+
+        def render
+          div { "other" }
+        end
       end
 
       def routes
@@ -23,7 +32,7 @@ describe Inesita::Router do
   end
 
   it 'should fail without routes' do
-    expect { wrong_router.new }.to raise_error Inesita::Error
+    expect { wrong_router.new.mount_to(element) }.to raise_error Inesita::Error
   end
 
   it 'should fail with empty routes' do
@@ -50,11 +59,11 @@ describe Inesita::Router do
 
   describe '#current_url?' do
     it 'should return true for current url' do
-      expect(router.new.current_url?(:test_component)).to eq true
+      expect(router.mount_to(element).current_url?(:test_component)).to eq true
     end
 
     it 'should return false for current url' do
-      expect(router.new.current_url?(:other_test_component)).to eq false
+      expect(router.mount_to(element).current_url?(:other_test_component)).to eq false
     end
   end
 end

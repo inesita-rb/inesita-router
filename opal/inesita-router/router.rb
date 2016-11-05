@@ -14,7 +14,8 @@ module Inesita
       add_listeners
     end
 
-    def self.included
+    def self.included(base)
+      base.extend(Inesita::Component::ClassMethods)
       Component.module_eval do
         unless respond_to?(:__a)
           alias_method :__a, :a

@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency 'opal', '~> 0.9'
-  s.add_dependency 'inesita', '~> 0.5.0'
+  s.add_dependency 'inesita', '> 0.5.9'
 
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 3.0'
