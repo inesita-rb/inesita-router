@@ -19,8 +19,8 @@ module Inesita
       Component.module_eval do
         unless respond_to?(:__a)
           alias_method :__a, :a
-          define_method(:a) do |params, &block|
-            params = { onclick: -> { router.go_to(params[:href]) } }.merge(params)
+          define_method(:a) do |params = {}, &block|
+            params = { onclick: ->(e) { router.go_to(e.target.pathname) } }.merge(params)
             __a(params, &block)
           end
         end
