@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'inesita-router'
-  s.version     = '0.2.1'
+  s.version     = '0.3.0'
   s.authors     = ['Michał Kalbarczyk']
   s.email       = 'fazibear@gmail.com'
   s.homepage    = 'http://github.com/inesita-rb/inesia-router'
@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ['lib']
 
-  s.add_dependency 'inesita', '~> 0.8.0'
+  s.add_dependency 'inesita', '~> 0.9.0'
 
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 3.0'
-  s.add_development_dependency 'opal-rspec', '~> 0.6.0'
+  s.add_development_dependency 'opal-rspec', '~> 0.8.0.alpha1'
   s.add_development_dependency 'rake', '~> 12.0'
 end
