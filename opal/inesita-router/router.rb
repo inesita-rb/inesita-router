@@ -20,7 +20,7 @@ module Inesita
         unless respond_to?(:__a)
           alias_method :__a, :a
           define_method(:a) do |params = {}, &block|
-            params = { onclick: ->(e) { router.go_to(e.target.pathname) unless params[:target] == "_blank" } }.merge(params)
+            params = { onclick: ->(e) { router.go_to(e.currentTarget.pathname) unless params[:target] == "_blank" } }.merge(params)
             __a(params, &block)
           end
         end
